@@ -96,10 +96,10 @@
 					update_option("post_geo_tag_map_width",$_POST['post_geo_tag_map_width']);
 					update_option("post_geo_tag_page_replace",$_POST['post_geo_tag_page_replace']);
 					update_option("post_geo_tag_api_key",$_POST['post_geo_tag_api_key']);
-					update_option("post_geo_tag_kml_title",$_POST['post_geo_tag_kml_title']);
-					update_option("post_geo_tag_kml_description",$_POST['post_geo_tag_kml_description']);
-					update_option("post_geo_tag_before_map",$_POST['post_geo_tag_before_map']);
-					update_option("post_geo_tag_post_map",$_POST['post_geo_tag_post_map']);
+					update_option("post_geo_tag_kml_title",stripslashes($_POST['post_geo_tag_kml_title']));
+					update_option("post_geo_tag_kml_description",stripslashes($_POST['post_geo_tag_kml_description']));
+					update_option("post_geo_tag_before_map",stripslashes($_POST['post_geo_tag_before_map']));
+					update_option("post_geo_tag_post_map",stripslashes($_POST['post_geo_tag_post_map']));
 					
 				}
 			

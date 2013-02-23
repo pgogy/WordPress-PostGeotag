@@ -4,10 +4,14 @@ function geotag_create_map(){
 
 	echo get_option("post_geo_tag_before_map");
 
-	?><script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=<?PHP echo get_option("post_geo_tag_api_key"); ?>&sensor=true"></script>
+	?>
+	<div id="map_canvas" style="width:<?PHP echo get_option("post_geo_tag_map_width"); ?>; height:<?PHP echo get_option("post_geo_tag_map_height"); ?>"></div>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=<?PHP echo get_option("post_geo_tag_api_key"); ?>&sensor=true"></script>
 		  <script type="text/javascript">
 	  
 		  function initialize() {
+		  
+			alert("HERE I AM");
 		  
 			var myOptions = {
 				  center: new google.maps.LatLng(0,0),
@@ -29,7 +33,6 @@ function geotag_create_map(){
 		  }
 
 	 </script>
-	   <div id="map_canvas" style="width:<?PHP echo get_option("post_geo_tag_map_width"); ?>; height:<?PHP echo get_option("post_geo_tag_map_height"); ?>"></div>
 	<?PHP
 
 	echo get_option("post_geo_tag_post_map");
