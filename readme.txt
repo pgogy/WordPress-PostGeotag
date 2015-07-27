@@ -2,8 +2,8 @@
 Contributors: pgogy
 Tags: geo tag, kml, google maps
 Requires at least: 3.1
-Tested up to: 3.4
-Stable tag: 0.2
+Tested up to: 4.2.2
+Stable tag: 0.3
 
 Post Geo Tag allows a series of co-ordinates and place names to be attached to blog posts.
 
@@ -12,8 +12,6 @@ Post Geo Tag allows a series of co-ordinates and place names to be attached to b
 Post Geo Tag allows a series of co-ordinates and place names to be attached to blog posts.
 
 This data can then be exposed as a KML layer people can access via a URL from your blog, or the blog owner can set up a page on the site and display the geo tags on a google map.
-
-Please see http://www.pgogy.com and http://www.pgogy.com/code/groups/wordpress/posts-geotag/ for support queries.
 
 [vimeo https://vimeo.com/60042534]
 

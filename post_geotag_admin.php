@@ -41,7 +41,30 @@
 			
 			}
 			
+			?></select><br/>
+			<label>Which page do you want to host URL based KML files?</label> <select name='post_geo_tag_kml_page_replace'><?PHP
+			
+			$selected_page = get_option("post_geo_tag_kml_page_replace");		
+
+			foreach($pages as $page){
+			
+				echo "<option ";
+
+				if($page->ID == $selected_page){
+				
+					echo " selected ";
+				
+				}
+
+				echo " value=\"" . $page->ID . "\">" . $page->post_title . "</option>";
+			
+			}
+			
 			?></select>
+			<p>
+				<label>Limit KML URLs to the following host</label>
+				<input type="text" name="post_geo_tag_map_KML" size=100 value="<?PHP echo get_option("post_geo_tag_map_KML","Enter the URL to limit KML from"); ?>" />
+			</p>
 			<p>
 				<label>Enter the height for the map</label>
 				<input type="text" name="post_geo_tag_map_height" size=100 value="<?PHP echo get_option("post_geo_tag_map_height","Enter the height for the map ( CSS % or px)"); ?>" />
@@ -92,9 +115,11 @@
 			
 				if($_POST['option_page']=="post_geotag"){
 					
+					update_option("post_geo_tag_map_KML",$_POST['post_geo_tag_map_KML']);
 					update_option("post_geo_tag_map_height",$_POST['post_geo_tag_map_height']);
 					update_option("post_geo_tag_map_width",$_POST['post_geo_tag_map_width']);
 					update_option("post_geo_tag_page_replace",$_POST['post_geo_tag_page_replace']);
+					update_option("post_geo_tag_kml_page_replace",$_POST['post_geo_tag_kml_page_replace']);
 					update_option("post_geo_tag_api_key",$_POST['post_geo_tag_api_key']);
 					update_option("post_geo_tag_kml_title",stripslashes($_POST['post_geo_tag_kml_title']));
 					update_option("post_geo_tag_kml_description",stripslashes($_POST['post_geo_tag_kml_description']));

@@ -1,5 +1,48 @@
 <?php
 
+function geotag_kml_create_map(){
+
+	if(isset($_GET['kml_url'])){
+	
+		$host = get_option("post_geo_tag_map_KML");
+
+		if(strpos($_GET['kml_url'], $host) === 0){
+
+		?>
+		<div id="map_canvas" style="width:<?PHP echo get_option("post_geo_tag_map_width"); ?>; height:<?PHP echo get_option("post_geo_tag_map_height"); ?>"></div>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=<?PHP echo get_option("post_geo_tag_api_key"); ?>&sensor=true"></script>
+			  <script type="text/javascript">
+		  
+			  function initialize() {
+			  
+				var myOptions = {
+					  center: new google.maps.LatLng(0,0),
+					  zoom: 2,
+					  mapTypeId: google.maps.MapTypeId.SATELITE
+				   };
+				   var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+
+				var ctaLayer = new google.maps.KmlLayer('<?PHP echo $_GET['kml_url']; ?>');
+				ctaLayer.setMap(map);
+
+			  }
+			  
+			  if (window.addEventListener) {
+				  window.addEventListener('load', initialize, false);
+			  }
+			  else if (window.attachEvent) {
+				  window.attachEvent('onload', initialize );
+			  }
+
+		 </script>
+		<?PHP
+
+		}
+
+	}
+
+}
+
 function geotag_create_map(){
 
 	echo get_option("post_geo_tag_before_map");
@@ -10,8 +53,6 @@ function geotag_create_map(){
 		  <script type="text/javascript">
 	  
 		  function initialize() {
-		  
-			alert("HERE I AM");
 		  
 			var myOptions = {
 				  center: new google.maps.LatLng(0,0),
@@ -46,6 +87,10 @@ function geotag_map_create($the_content) {
 	if($post->post_type=="page"&&$post->ID==get_option("post_geo_tag_page_replace")){
 	
 		geotag_create_map();
+
+	}else if($post->post_type=="page"&&$post->ID==get_option("post_geo_tag_kml_page_replace")){
+	
+		geotag_kml_create_map();
 
 	}else{
 		

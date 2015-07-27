@@ -4,10 +4,9 @@
 
 		Plugin Name: Posts GeoTag
 		Description: Add geotags a blog post and generates the KML Data source and if used, a google map page
-		Version: 0.2
+		Version: 0.
 		Author: pgogy		
 		Author URI: http://www.pgogy.com
-		Plugin URI: http://www.pgogy.com/code/groups/wordpress/posts-geotag/
 		
 	*/
 
